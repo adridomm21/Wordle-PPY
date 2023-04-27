@@ -1,5 +1,13 @@
 let intentos = 6;
 let palabra = 'APPLE';
+const API ='https://random-word-api.herokuapp.com/word?number=2&length=5&lang=es'
+
+fetch(API),then(response => response.json())
+.then(response => {
+    palabra = response[0].toUpperCase()
+    console.log(palabra)
+    })
+.catch(err =>  console.log('err') )
 
 const BOTON = document.getElementById("guess-button");
 BOTON.addEventListener('click', intentar);
